@@ -4,8 +4,62 @@
 <html>
 <head>
 	<title>kakao-api</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js" integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous">
+	</script>
+	
+	<script>
+		Kakao.init('e61c69473af4d6797abb6a1103cc30f4');
+		console.log(Kakao.isInitialized());
+		
+		function kakaoLogin(){
+			console.log("---------kakaoLogin in----------");
+			
+			Kakao.Auth.authorize({
+				  redirectUri: 'http://localhost:8080/kakaoApi/callback'
+				});
+			console.log("out");
+			/*var urlSearch = new URLSearchParams(location.search);
+            var code = urlSearch.get('code');
+			console.log("code : " + code);*/
+			
+			/*$.ajax({
+			    type : "POST"
+			    , url : 'https://kauth.kakao.com/oauth/token'
+			    , data : {
+			        grant_type : 'authorization_code',
+			        client_id : e61c69473af4d6797abb6a1103cc30f4, //'본인이 할당받은 key입력'
+			        redirect_uri : 'http://localhost:8080/login',
+			        code : kakaoCode
+			    }
+			    , contentType:'application/x-www-form-urlencoded;charset=utf-8'
+			    , dataType: null
+			    , success : function(response) {
+			        Kakao.Auth.setAccessToken(response.access_token);
+			        document.querySelector('button.api-btn').style.visibility = 'visible';
+			    }
+			    ,error : function(jqXHR, error) {
+
+			    }
+			}); */
+			
+			//console.log("---------kakaoLogin out----------");
+		}
+		
+	</script>
+  
+  </script>
 </head>
 <body>
+
+	<button onclick="kakaoLogin()"> kakao login </button>
+	
+	<form action="aaa" method="post">
+	이름 : <input type="text" name="userName"><br>
+	계정 : <input type="text" name="userId">
+	<input type="submit" value="전송버튼">
+	</form>
+	
 
 </body>
 </html>

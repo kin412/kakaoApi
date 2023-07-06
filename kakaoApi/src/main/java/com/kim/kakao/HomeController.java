@@ -36,4 +36,9 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value = "ttt", method = RequestMethod.POST)
+	public void memberRegi(Locale locale, Model model) {
+	  System.out.println("Test");
+	}
+	
 }
