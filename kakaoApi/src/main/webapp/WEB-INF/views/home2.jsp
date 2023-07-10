@@ -8,6 +8,20 @@
 	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.2.0/kakao.min.js" integrity="sha384-x+WG2i7pOR+oWb6O5GV5f1KN2Ko6N7PTGPS7UlasYWNxZMKQA63Cj/B2lbUmUfuC" crossorigin="anonymous">
 	</script>
 	
+	<!-- ck editor -->
+	<!--  <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script> -->
+	<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/ckeditor.js"></script>
+	<script src="https://cdn.ckeditor.com/ckeditor5/34.0.0/classic/translations/ko.js"></script>
+	
+	<style>
+	.ck.ck-editor {
+    	max-width: 700px;
+	}
+	.ck-editor__editable {
+	    min-height: 200px;
+	}
+	</style>
+	
 	<script>
 	
 		Kakao.init('e61c69473af4d6797abb6a1103cc30f4');
@@ -196,9 +210,18 @@
 			console.log("code : " + $('#code').val());
 		}
 		
+		function ckJsValControl(){
+			
+			//ckeditor4 에서 값가져오는 방법. 5에서는 안되는듯?
+		    //console.log("ck instances : " + CKEDITOR.instances.classic.getData());
+			
+			console.log("editor : " + editor.getData());
+			editor.setData("<p>setting data</p><p>electric</p>");
+			//alert("javascript");
+		}
+		
 	</script>
   
-  </script>
 </head>
 <body>
 	
@@ -229,6 +252,30 @@
 	</div>
 	<br>
 	<button onclick="mySelfMessageSend()"> mySelfMessageSend </button>
+	
+	<div> ck editor </div>
+	<form action="ck/textWrite" method="post">
+	<input name = "testInput"/>
+	<textarea name="content1" id="classic"></textarea>
+	<script>
+		let editor;
+        ClassicEditor
+            .create( document.querySelector( '#classic' ), {
+            	language:'ko'
+            })
+            .then( newEditor => {
+		        editor = newEditor;
+		    } )
+            .catch( error => {
+                console.error( "ck editor error : " + error );
+            } );
+        //var sHTML = editor.getData();
+      	
+    </script>
+    <input type="submit" value="ck submit">
+    </form>
+	
+	<button id="ckjsBtn" onclick= "ckJsValControl()"> ck jsValControl</button>
 	
 	
 

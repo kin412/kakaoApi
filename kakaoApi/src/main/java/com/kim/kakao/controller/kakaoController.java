@@ -1,5 +1,6 @@
 package com.kim.kakao.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +38,19 @@ public class kakaoController {
 	  
 	  
 	  //return "home2";
+	}
+	
+	@RequestMapping(value = "/ck/textWrite", method = RequestMethod.POST)
+	public String textWrite(Locale locale, Model model, HttpServletRequest request) throws UnsupportedEncodingException {
+	  System.out.println("----textWrite in----");
+	  request.setCharacterEncoding("utf-8");
+	  String textContent = request.getParameter("content1");
+	  String testInput = request.getParameter("testInput");
+	  System.out.println("textContent : " + textContent);
+	  System.out.println("testInput : " + testInput);
+	  
+	  
+	  return "redirect:/callback";
 	}
 	
 }
