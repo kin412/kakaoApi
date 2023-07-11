@@ -25,11 +25,11 @@ public class kakaoController {
 	}
 	
 	@RequestMapping(value = "aaa", method = RequestMethod.POST)
-	public void memberRegi(Locale locale, Model model) {
+	public String memberRegi(Locale locale, Model model) {
 	  System.out.println("Test111111111111111111");
 	  
 	  
-	  //return "home2";
+	  return "home2";
 	}
 	
 	@RequestMapping(value = "/callback/tokenAfter", method = RequestMethod.POST)
@@ -45,7 +45,7 @@ public class kakaoController {
 	  System.out.println("----textWrite in----");
 	  request.setCharacterEncoding("utf-8");
 	  String textContent = request.getParameter("content1");
-	  String testInput = request.getParameter("testInput");
+	  String testInput = request.getParameter("testInput"); 
 	  System.out.println("textContent : " + textContent);
 	  System.out.println("testInput : " + testInput);
 	  

@@ -52,13 +52,22 @@
 </head>
 <body>
 
-	<button onclick="kakaoLogin()"> kakao login </button>
+	<button onclick="kakaoLogin()"> kakao login </button><br>
 	
-	<form action="aaa" method="post">
+	<!-- <form action="aaa" method="post">
 	이름 : <input type="text" name="userName"><br>
 	계정 : <input type="text" name="userId">
 	<input type="submit" value="전송버튼">
+	</form> -->
+	<br>
+	<div>javaMail</div>
+	<form action = "mailSendCon" method="post">
+	수신인 : <input type="text" name="addressee"><br>
+	제목 : <input type="text" name="title"><br>
+	내용 : <input type="text" name="content"><br>
+	<input type="submit" value="메일 전송">
 	</form>
+	
 	
 
 </body>
