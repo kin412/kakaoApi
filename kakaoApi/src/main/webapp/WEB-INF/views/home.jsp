@@ -67,6 +67,9 @@
 	내용 : <input type="text" name="content"><br>
 	<input type="submit" value="메일 전송">
 	</form>
+
+	<a href="fileList"><button>업로드 파일 목록</button></a>
+	
 	
 	
 
