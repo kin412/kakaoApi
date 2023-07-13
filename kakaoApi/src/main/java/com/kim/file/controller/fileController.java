@@ -2,7 +2,8 @@ package com.kim.file.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,8 +13,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.kim.excel.excelRead;
+import com.kim.excel.excelReadOption;
+import com.kim.excel.excelUploadService;
 import com.kim.file.fileService;
 
 
@@ -23,6 +28,9 @@ public class fileController {
 	@Autowired
 	private fileService fileService1;
 	
+	@Autowired
+	private excelUploadService excelUploadService;
+	
 	String filePath = "C:\\Users\\min\\Documents\\upload"; //경로 변경
 	
 	@RequestMapping(value = "fileList", method = RequestMethod.GET)
@@ -31,10 +39,10 @@ public class fileController {
 		File listFile = new File(filePath);
 		
 		String listFileName[] = listFile.list();
-		System.out.println("listFileName : " + listFileName[0]);
+		//System.out.println("listFileName : " + listFileName[0]);
 		
 		File listFileLink[] = listFile.listFiles();
-		System.out.println("listFileLink : " + listFileLink[0].toString());
+		//System.out.println("listFileLink : " + listFileLink[0].toString());
 		
 		String listFile2[][] = new String[listFileName.length][2];
 		/*for(int i=0; i<listFileLink.length; i++) {
@@ -72,4 +80,5 @@ public class fileController {
 		
 		return"fileList";
 	}
+	
 }
