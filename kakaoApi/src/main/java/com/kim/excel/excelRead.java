@@ -62,7 +62,7 @@ public class excelRead {
                  * 가져온 Row의 Cell의 개수를 구한다.
                  */
                 numOfCells = row.getLastCellNum();
-                System.out.println("numOfCells : " + numOfCells);
+                //System.out.println("numOfCells : " + numOfCells);
                 /*
                  * 데이터를 담을 맵 객체 초기화
                  */
@@ -81,7 +81,7 @@ public class excelRead {
                      */
                     cellName = excelCellRef.getName(cell, cellIndex);
                     
-                    System.out.println("cellName : " + cellName + "		cellVal :" + excelCellRef.getValue(cell));
+                    //System.out.println("cellName : " + cellName + "		cellVal :" + excelCellRef.getValue(cell));
                     /*
                      * 추출 대상 컬럼인지 확인한다
                      * 추출 대상 컬럼이 아니라면, 

@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Service
 public class excelUploadService {
 
-	public void excelReadServiceFunc(MultipartFile excelFile, String filePath) throws IllegalStateException, IOException {
+	public List<Map<String, String>> excelReadServiceFunc(MultipartFile excelFile, String filePath) throws IllegalStateException, IOException {
 		
 		System.out.println("------------------excelReadServiceFunc-------------------");
 		
@@ -36,17 +36,9 @@ public class excelUploadService {
 	    excelReadOption.setStartRow(2);
 	    
 	    List<Map<String, String>>excelContent =excelRead.read(excelReadOption);
-	    
-	    
-	    System.out.println("---------------------");
-	    for(Map<String, String> article: excelContent){
-	        System.out.println(article.get("A"));
-	        System.out.println(article.get("B"));
-	        System.out.println(article.get("C"));
-	        System.out.println(article.get("D"));
-	        
-	    }
 		
+	    return excelContent;
+	    
 	}
 	
 }

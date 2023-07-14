@@ -47,7 +47,7 @@
 <div>엑셀 업로드</div>
 <form id="frmEx" name="frmEx" method="post" action="fileUploadEx" enctype="multipart/form-data" >
 	<input type="file" id="fileEx" name="fileEx"/><br>
-	<input type="submit" value="엑셀 업로드">
+	<input type="submit" value="엑셀 업로드 및 poi 재조립">
 </form>
 
 </body>
