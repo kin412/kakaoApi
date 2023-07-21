@@ -48,7 +48,37 @@
 		
 	</script>
   
-  </script>
+  	
+  	<script type="text/javascript">
+    
+    $(document).ready(function(){
+    	
+    	$('#ajaxTest').click(function(){
+    		
+    		var data = {a : "y", b : "bbb"};
+    		var jj = JSON.stringify(data)
+    		console.log("json : " + jj);
+    		$.ajax({
+    			type : "POST",
+    			url : 'restBody',
+    			data : JSON.stringify(data),
+    			contentType : 'application/json',
+    			success : function(result){
+    				console.log("success result : " + result);
+    			},
+    			error : function(request, status, error){
+    				console.log("code : " + request.status + "\n" + "message : " + request.responseText +"\n"+ "error : " + error);
+    			}
+    		});
+    		
+    	});
+    	
+    	
+    });
+    
+    </script>
+  
+  
 </head>
 <body>
 
@@ -69,6 +99,8 @@
 	</form>
 
 	<a href="fileList"><button>업로드 파일 목록</button></a>
+	
+	<button id = "ajaxTest">ajaxTest</button>
 	
 	
 

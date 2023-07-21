@@ -25,8 +25,8 @@ public class excelFileDataDownService {
 		System.out.println("--------------------excleFileDataCreate in--------------------------");
 		String saveFileName = "데이터 엑셀 파일 생성";
 		
-		//File file = new File(filePath, "다운 테스트 엑셀생성.xlsx"); // 파일 확장자 .xlsx로 고정		
-		//FileOutputStream fos = new FileOutputStream(file);
+		File file = new File(filePath, "다운 테스트 엑셀생성.xlsx"); // 파일 확장자 .xlsx로 고정		
+		FileOutputStream fos = new FileOutputStream(file);
 		
 		SXSSFWorkbook wb = new SXSSFWorkbook();
 		SXSSFSheet sheet = wb.createSheet(saveFileName);
@@ -92,10 +92,10 @@ public class excelFileDataDownService {
 			cell.setCellValue(map.get("D"));
 		}
 		
-		/*wb.write(fos);
+		wb.write(fos);
 		if(fos != null) {
 			fos.close();
-		}*/
+		}
 		
 		/* response를 이용해 즉시 다운
 		res.setHeader("Set-cookie", "fileDownload=true; path=/");
