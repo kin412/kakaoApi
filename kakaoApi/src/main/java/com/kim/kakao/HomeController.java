@@ -33,7 +33,7 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		return "home3";
 	}
 	
 	@RequestMapping(value = "ttt", method = RequestMethod.POST)

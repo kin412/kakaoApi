@@ -35,5 +35,19 @@ public class restController {
 		
 		return map;
 	}
+	
+	@ResponseBody
+	@RequestMapping(value = "restCon")
+	public ttt restCon(@RequestBody ttt tecl /*@RequestBody String bbb*/) {
+		System.out.println("----restCon in");
+		//System.out.println("----requset.getparameter : " + request.getParameter("testText1"));
+		//System.out.println("----RequestBody bbb : " + bbb);
+		System.out.println("tecl.toString() : " + tecl.toString());
+		
+		
+		
+		//return "redirect:/";
+		return tecl;
+	}
 
 }
